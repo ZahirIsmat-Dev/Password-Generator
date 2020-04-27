@@ -56,7 +56,7 @@ function generatePassword() {
 
   }
 
-  return finalCharacters;
+  return [finalCharacters.join('')];
 
 }
 
