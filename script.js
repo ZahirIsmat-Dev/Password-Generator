@@ -7,6 +7,9 @@ var splitLower = lowerCharacters.split("");
 var upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var splitUpper = upperCharacters.split("");
 
+var numericCharacters = "0123456789";
+var splitNumeric = numericCharacters.split("");
+
 var specialCharacters = "!,@,#,$,%,^,&,*";
 var splitSpecial = specialCharacters.split("");
 
@@ -14,22 +17,41 @@ var splitSpecial = specialCharacters.split("");
 //Alerts & Prompts for password generation
 alert("Welcome to the Password Generator! Please provide following criteria to generate password...");
 var passLength = prompt("Choose a length between 8 and 128 characters");
-var passUpper = prompt("Do you want password to contain uppercase characters?  (y or n)");
-var passLower = prompt("Do you want password to contain lowercase characters?  (y or n)");
-var passSpecial = prompt("Do you want password to contain special characters?  (y or n)") ;
+var passUpper = confirm("Do you want password to contain uppercase characters?");
+var passLower = confirm("Do you want password to contain lowercase characters?");
+var passNumeric = confirm("Do you want password to contain numeric characters?");
+var passSpecial = confirm("Do you want password to contain special characters?");
 
 //Create list of possible characters, numerics and or specials
-var possibleCharacters = [,]; 
+var possibleCharacters = []; 
 
-if (passUpper = "y") {
-  splitUpper.concat(possibleCharacters);
+if (passUpper) {
+  possibleCharacters = possibleCharacters.concat(splitUpper);
 }
-if (passLower = "y") {
-  splitLower.concat(possibleCharacters);
+if (passLower) {
+  possibleCharacters =  possibleCharacters.concat(splitLower);
 }
-if (passSpecial = "y") {
-  splitSpecial.concat(possibleCharacters);
+if (passNumeric) {
+  possibleCharacters =  possibleCharacters.concat(splitNumeric);
 }
+if (passSpecial) {
+  possibleCharacters = possibleCharacters.concat(splitSpecial);
+}
+
+// create an empty array with length n
+var finalCharacters = new Array(passLength); 
+
+// Generate Password
+function generatePassword() {
+  finalCharacters = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
+
+  return finalCharacters;
+
+}
+
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
 function writePassword() {
@@ -38,6 +60,7 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
