@@ -10,7 +10,7 @@ var splitUpper = upperCharacters.split("");
 var numericCharacters = "0123456789";
 var splitNumeric = numericCharacters.split("");
 
-var specialCharacters = "!,@,#,$,%,^,&,*";
+var specialCharacters = "!@#$%^&*";
 var splitSpecial = specialCharacters.split("");
 
 
