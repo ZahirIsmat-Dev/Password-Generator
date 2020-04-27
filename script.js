@@ -38,12 +38,23 @@ if (passSpecial) {
   possibleCharacters = possibleCharacters.concat(splitSpecial);
 }
 
-// create an empty array with length n
-var finalCharacters = new Array(passLength); 
+// // Generate Password
+// function generatePassword() {
+//   var finalCharacters = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
+
+//   return finalCharacters;
+
+// }
 
 // Generate Password
 function generatePassword() {
-  finalCharacters = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
+  
+  var finalCharacters = [];
+
+  for (var i = 0; i <= passLength; i++) {
+    finalCharacters =  finalCharacters.concat(possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)]);
+
+  }
 
   return finalCharacters;
 
